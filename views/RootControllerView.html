@@ -10,11 +10,10 @@
  <div class="dropdown-expanded content-padded"> 
  <ul class="content-padded" >
 
-  
-
-    <li ng-show="ready" ng-repeat="slide in slides" class="content-padded">
+    <li ng-repeat="slide in slides" class="content-padded">
          <a href="#/page/{{slide.id}}">{{slide.caption}}</a>
     </li>
+ 
  </ul>
  </div>
  
@@ -46,20 +45,13 @@
     <ul class="list">
       <li class="list-divider">HOME</li>
 
-      <li ng-show="!ready">
+     <!-- <li ng-show="!ready">
         Receiving data...
-      </li>
+      </li>-->
 
-      <!---
-      <li ng-show="ready" ng-repeat="movie in recommendedMovies | filter:name">
-        <a href="#/theaters">
-          <div><img style="float:left; width:120px; height:177px; margin-right:10px;"class="movieimg" src="{{movie.posters.profile}}" /><strong style="font-size:18px;">{{movie.title}}</strong><p style="font-size:16px;">{{movie.critics_consensus}}</p></div>
-          <div style="clear:both;"></div>   
-        </a>
-      </li>
-    -->
+    
 
-      <li ng-show="ready" ng-repeat="slide in slides">
+      <li  ng-repeat="slide in slides">
         <a href="#/page/{{slide.id}}">
 
 
