@@ -13,62 +13,47 @@
 // Defining angular application model
 // for Pomidoro app
 //
-var pomidoroApp = angular.module('pomidoroApp',[]);
+var saabMicroApp = angular.module('saabMicroApp',[]);
 
+var all = document.getElementById('all');
+	//console.log(all);
+
+
+//ng-view ng-animate="'slide'"
+ setTimeout(function() {
+    all.setAttribute('ng-view','');
+    all.setAttribute('ng-animate',"'slide'")
+    angular.bootstrap(all, ['ng', 'saabMicroApp']);
+   document.getElementById('splash-screen').style.display='none';
+  }, 2000);
 
 ////////// ROUTING /////////////////////////
 
 // Deffining $routeProvider for Pomidoro applicatiom module
 //
-pomidoroApp.config(function ($routeProvider) {
+saabMicroApp.config(function ($routeProvider) {
 	$routeProvider
 		
-		// We are going to define routes,
-		// controllers and templates associated
-		// with these routes.
-		// You can change these but make sure
-		// you know what you are doing
-		//
-
-		// main route
-		//
+	
 		.when('/',
 		{
 			controller: 'RootController',
 			templateUrl: 'views/RootControllerView.html'
 		})
 		
-		// theaters list page
-		//
-		.when('/theaters',
-		{
-			controller: 'TheatersController',
-			templateUrl: 'views/TheatersControllerView.html'
-
-		})
+		
 		.when('/page/:id', {
 			controller: 'PageController',
 			templateUrl:function(params){ return 'views/page' + params.id +'.html'}
 			/*templateUrl: 'views/page.html'*/
 		})
 		
-		// settings page
-		//
-		.when('/settings',
-		{
-			controller: 'SettingsController',
-			templateUrl: 'views/SettingsControllerView.html'
 
-		})
-
-		// if non of the above routes
-		// are matched we are setting router
-		// to redirect to the RootController
 		.otherwise({ redirectTo: '/'});
 
 });
 
-pomidoroApp.config(function ($httpProvider){
+saabMicroApp.config(function ($httpProvider){
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 });
@@ -81,7 +66,7 @@ pomidoroApp.config(function ($httpProvider){
 
 // RootController
 //
-pomidoroApp.controller('RootController', function($scope,recommendedMoviesFactory, landingPageFactory){
+saabMicroApp.controller('RootController', function($scope,recommendedMoviesFactory, landingPageFactory){
 	
 	// Controller is going to set recommendedMovies
 	// variable for the $scope object in order for view to
@@ -97,17 +82,13 @@ pomidoroApp.controller('RootController', function($scope,recommendedMoviesFactor
 		
 	function init(){
 
-		// As we need to wait for $http.get 
-		// request data to be ready we are 
-		// using .then on the promisse received
-		// from factory
-		recommendedMoviesFactory.getRecommended().then(function(data) {
-		   //this will execute when the 
-		   //AJAX call completes.
+	
+		/*recommendedMoviesFactory.getRecommended().then(function(data) {
+		 
 		   $scope.recommendedMovies = data.movies;
 		   $scope.ready = true;		   
-		   //console.log(data.movies);
-		});
+		
+		});*/
 
 		$scope.slides = landingPageFactory.getLandingPageContent();
 		//console.log($scope.slides[0].name);
@@ -119,7 +100,7 @@ pomidoroApp.controller('RootController', function($scope,recommendedMoviesFactor
 
 // TheatersController
 //
-pomidoroApp.controller('TheatersController', function($scope,theatersFactory){
+saabMicroApp.controller('TheatersController', function($scope,theatersFactory){
 	
 	// This controller is going to set theaters
 	// variable for the $scope object in order for view to
@@ -140,7 +121,7 @@ pomidoroApp.controller('TheatersController', function($scope,theatersFactory){
 //
 
 
-pomidoroApp.controller('PageController', function($scope,$routeParams,$location,pagesFactory){
+saabMicroApp.controller('PageController', function($scope,$routeParams,$location,pagesFactory){
 	
 	// This controller is going to set theaters
 	// variable for the $scope object in order for view to
@@ -168,7 +149,7 @@ pomidoroApp.controller('PageController', function($scope,$routeParams,$location,
 
 // SettingsController
 //
-pomidoroApp.controller('SettingsController', function($scope){
+saabMicroApp.controller('SettingsController', function($scope){
 	// This controller is going just to serve the view
 });
 
@@ -180,7 +161,7 @@ pomidoroApp.controller('SettingsController', function($scope){
 // makes them awailable to controller
 // so it can pass values to the temmplate
 //
-pomidoroApp.factory('recommendedMoviesFactory', function($http){
+saabMicroApp.factory('recommendedMoviesFactory', function($http){
 	var recommended = [
 		{ name: 'World War Z', description: 'The story revolves around United Nations employee Gerry Lane (Pitt), who traverses the world in a race against time to stop a pandemic', img: 'img/wardwarz.png'},
 		{ name: 'Star Trek Into Darkness', description: 'When the crew of the Enterprise is called back home, they find an unstoppable force of terror from within their own organization has detonated the fleet and everything it stands for', img: 'img/intodarkness.png'},
@@ -207,37 +188,11 @@ pomidoroApp.factory('recommendedMoviesFactory', function($http){
 	return factory;
 });
 
-// Defining theatersFactory factory
-// In this example it has 5 movie theatres 
-// but in real live application you would 
-// want it to get this data from the web
-// service, based on the the movie selected
-// by user
-//
-pomidoroApp.factory('theatersFactory', function(){
-	var theaters = [
-		{ name: 'Everyman Walton', address: '85-89 High Street London'},
-		{ name: 'Ambassador Cinemas', address: 'Peacocks Centre Woking'},
-		{ name: 'ODEON Kingston', address: 'larence Street Kingston Upon Thames'},
-		{ name: 'Curzon Richmond', address: '3 Water Lane Richmond'},
-		{ name: 'ODEON Studio Richmond', address: '6 Red Lion Street Richmond'}
-	];
-
-	var factory = {};
-	factory.getTheaters = function(){
-
-		// If performing http communication to receive
-		// factory data, the best would be to put http
-		// communication code here and return the results
-		return theaters;
-	}
-
-	return factory;
-});
 
 
 
-pomidoroApp.factory('landingPageFactory', function(){
+
+saabMicroApp.factory('landingPageFactory', function(){
 	var landingPageSlides = [
 		{ id:1, caption: '1. Your role in building the Saab brand',name: 'YOUR ROLE IN BUILDING', name2:'THE SAAB BRAND.', number:'1', pic: 'img/cap1.png'},
 		{ id:2, caption: '2. Our brand platform.', name: 'OUR BRAND', name2:'PLATFORM.',number:'2', pic: 'img/cap2.png'},
@@ -258,7 +213,7 @@ pomidoroApp.factory('landingPageFactory', function(){
 });
 
 
-pomidoroApp.factory('pagesFactory', function(){
+saabMicroApp.factory('pagesFactory', function(){
 	var pagesContent = [
 		{ id:1, caption: '1. Your role in building the Saab brand',name: 'YOUR ROLE IN BUILDING', name2:'THE SAAB BRAND.', number:'1', pic: 'img/cap1.png'},
 		{ id:2, caption: '2. Our brand platform.',name: 'OUR BRAND', name2:'PLATFORM.',number:'2', pic: 'img/cap2.png', paragraphs:'nico'},
