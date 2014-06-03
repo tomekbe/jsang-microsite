@@ -23,6 +23,33 @@
 }
 
 
+
+/* splash page */
+.splash {
+  display: block;
+}
+ 
+[ng-cloak].splash {
+  display: block !important;
+}
+    
+.splash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height:100%;
+  width:100%; 
+  /*filter: alpha(opacity=60);
+  opacity: 0.6;*/
+  background: #FFFF;
+}
+ 
+.splash h2 {
+  text-align: center;
+  font-size: 4em;
+  color:#002459;      
+}
+
 /**/
 .bar-title .logo {
 	  position: absolute;
