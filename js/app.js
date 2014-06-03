@@ -147,14 +147,20 @@ pomidoroApp.controller('PageController', function($scope,$routeParams,$location,
 	// display its contents on the screen as html 
 
 	$scope.page = [];
+	$scope.strony =[];
 	$scope.pageId = $routeParams.id;
-	console.log($routeParams.id,"this is route Params id ");
+	$scope.dupa ="wartosc ";
+
+	//console.log($routeParams.id,"this is route Params id ");
 	init();
 	
 	function init() {
-		$pages = pagesFactory.getPagesContent();
-		$scope.page = $pages[$routeParams.id-1];
-		console.log($routeParams.id, "this is route params id passed");
+		$scope.strony = pagesFactory.getPagesContent();
+		$scope.pages = pagesFactory.getPagesContent();
+		console.log($scope.pages,"these are pages");
+		$scope.page = $scope.pages[$routeParams.id-1];
+
+		//console.log($routeParams.id, "this is route params id passed");
 	}
 
 
@@ -233,9 +239,9 @@ pomidoroApp.factory('theatersFactory', function(){
 
 pomidoroApp.factory('landingPageFactory', function(){
 	var landingPageSlides = [
-		{ id:1, name: 'YOUR ROLE IN BUILDING', name2:'THE SAAB BRAND.', number:'1', pic: 'img/cap1.png'},
-		{ id:2, name: 'OUR BRAND', name2:'PLATFORM.',number:'2', pic: 'img/cap2.png'},
-		{ id:3, name: 'HOW WE.', name2:'COMMUNICATE.', number:'3',pic: 'img/cap3.png'},
+		{ id:1, caption: '1. Your role in building the Saab brand',name: 'YOUR ROLE IN BUILDING', name2:'THE SAAB BRAND.', number:'1', pic: 'img/cap1.png'},
+		{ id:2, caption: '2. Our brand platform.', name: 'OUR BRAND', name2:'PLATFORM.',number:'2', pic: 'img/cap2.png'},
+		{ id:3, caption: '3. How we communicate.', name: 'HOW WE.', name2:'COMMUNICATE.', number:'3',pic: 'img/cap3.png'},
 	
 	];
 
