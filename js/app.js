@@ -48,9 +48,10 @@ pomidoroApp.config(function ($routeProvider) {
 		})
 		.when('/page/:id', {
 			controller: 'PageController',
-			templateUrl: 'views/page.html'
+			templateUrl:function(params){ return 'views/page' + params.id +'.html'}
+			/*templateUrl: 'views/page.html'*/
 		})
-
+		
 		// settings page
 		//
 		.when('/settings',
@@ -139,7 +140,7 @@ pomidoroApp.controller('TheatersController', function($scope,theatersFactory){
 //
 
 
-pomidoroApp.controller('PageController', function($scope,$routeParams,pagesFactory){
+pomidoroApp.controller('PageController', function($scope,$routeParams,$location,pagesFactory){
 	
 	// This controller is going to set theaters
 	// variable for the $scope object in order for view to
@@ -147,7 +148,7 @@ pomidoroApp.controller('PageController', function($scope,$routeParams,pagesFacto
 
 	$scope.page = [];
 	$scope.pageId = $routeParams.id;
-	
+	console.log($routeParams.id,"this is route Params id ");
 	init();
 	
 	function init() {
@@ -155,7 +156,8 @@ pomidoroApp.controller('PageController', function($scope,$routeParams,pagesFacto
 		$scope.page = $pages[$routeParams.id-1];
 		console.log($routeParams.id, "this is route params id passed");
 	}
-	
+
+
 });
 
 // SettingsController
@@ -252,9 +254,9 @@ pomidoroApp.factory('landingPageFactory', function(){
 
 pomidoroApp.factory('pagesFactory', function(){
 	var pagesContent = [
-		{ id:1, name: 'YOUR ROLE IN BUILDINGTHE SAAB BRAND.', number:'1', pic: 'img/cap1.png',paragraphs:'Today, Saab operates across the world, and across an ever-wider range of products, sectors and customers.Whenever and wherever people come into contact with Saab, we need them to know what we stand for and what binds our business operations together.To achieve this, we have a Saab Brand Platform, to help you to present Saab clearly and consistently, to all our audiences, in all our communications, all over the world. Everyone at Saab is responsible for portraying the Saab brand faithfully and consistently in all channels. Because everything we say or do will either strengthen (or weaken) our brand. And a strong brand makes for a stronger and more profitable company.'},
-		{ id:2, name: 'OUR BRAND PLATFORM.',number:'2', pic: 'img/cap2.png', paragraphs:'nico'},
-		{ id:3, name: 'HOW WE COMMUNICATE.', number:'3',pic: 'img/cap3.png', paragraphs:'nico nico'},
+		{ id:1, caption: '1. Your role in building the Saab brand',name: 'YOUR ROLE IN BUILDING', name2:'THE SAAB BRAND.', number:'1', pic: 'img/cap1.png'},
+		{ id:2, caption: '2. Our brand platform.',name: 'OUR BRAND', name2:'PLATFORM.',number:'2', pic: 'img/cap2.png', paragraphs:'nico'},
+		{ id:3, caption: '3. How we communicate.',name: 'HOW WE.', name2:'COMMUNICATE.', number:'3',pic: 'img/cap3.png', paragraphs:'nico nico'},
 	
 	];
 

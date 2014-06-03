@@ -69,6 +69,7 @@
 .upper-thin {
   color:#002459;
   font-size:18px;
+
   font-family: 'Conv_HelveticaNeueLTPro-Th';
 }
 
@@ -76,24 +77,50 @@
     color:#002459;
   font-size:18px;
   font-family: 'Conv_HelveticaNeueLTPro-HvEx';
+   letter-spacing: -2px;
 }
 
 .cap-wrap {
 
-/*background: yellow;*/
-float:left;
-margin-left:30px;
+  /*background: yellow;*/
+  float:left;
+  margin-left:10px;
 
 }
 
 .number  {
 
- float:left;
-/*background: green;*/
-font-size: 55px;
-color:#002459;
-font-family: 'Conv_HelveticaNeueLTPro-HvEx';
-margin-left:20px;
-padding:0;line-height: 55px;
+   float:left;
+  /*background: green;*/
+  font-size: 55px;
+  color:#002459;
+  font-family: 'Conv_HelveticaNeueLTPro-HvEx';
+  margin-left:10px;
+  padding:0;line-height: 55px;
 
+}
+
+
+ul.custom-list  {
+
+
+   list-style-type: round;
+ list-style-position: inside;
+ list-style-image: none;
+ margin-top:5px;
+}
+
+.saab-box {
+
+
+  background-color: #ebebeb;
+  color:#002459;
+  margin-top:10px;
+  margin-bottom:10px;
+
+}
+
+.saab-box .context, .saab-box .narrative {
+  margin-top:10px;margin-bottom:10px;
+  padding:5px;
 }
