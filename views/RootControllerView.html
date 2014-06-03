@@ -7,14 +7,25 @@
 // Visit www.htmlcenter.com 
 // for more mobile application templates
 -->
+ <div class="dropdown-expanded content-padded"> 
+ <ul class="content-padded" >
 
+  
+
+    <li ng-show="ready" ng-repeat="slide in slides" class="content-padded">
+         <a href="#/page/{{slide.id}}">{{slide.caption}}</a>
+    </li>
+ </ul>
+ </div>
  
   <header class="bar-title">
  
    <!-- <img class="logo" src="img/saab_logo.png"  > -->
       
-      <div class="logo"><img src="img/saab_logo.png"  ></div>
-    <div class="dropdown">drop</div>
+    <div class="logo"><img src="img/saab_logo.png"  ></div>
+    <div class="dropdown"><div class="drop">drop</div></div>
+    
+     
   </header>
 
 
@@ -65,6 +76,8 @@
                   {{slide.name2}}
                 </div>
           </div>
+
+
           <div style="clear:both;">
 
           </div>   
@@ -75,3 +88,5 @@
     </ul>
 
   </div>
+
+<script src="js/drop.js"></script>

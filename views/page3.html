@@ -1,3 +1,14 @@
+ <div class="dropdown-expanded content-padded"> 
+ <ul class="content-padded" >
+
+    <li 
+    ng-repeat="strona in strony" class="content-padded">
+         <a href="#/page/{{strona.id}}">{{strona.caption}}</a>
+    </li>
+ 
+ </ul>
+ </div>
+
   <header class="bar-title">
  <a class="button-prev" href="#/">
       Back
@@ -164,22 +175,22 @@ performance and effectiveness.
 <!-- box 5-->
   <div class="saab-box content-padded" >
       <div class="context">
-        <p class=""><b>Context</b>:My stakeholders need <b> partnering and collaboration.</b></p>
+        <p class=""><b>Context</b>:My stakeholders are <b>seeking technologically advanced and innovative solutions.</b></p>
         <ul class="custom-list">
-          <li >Forming ties with businesses who share technology, ambition and pride.
+          <li >They face hurdles that could be logistical, technical, financial or political.
           </li>
           <li>  
-            Committing to developing local markets and communities.
+            They need a solution that doesn’t rely on an existing approach.
           </li>
         </ul>
       </div>
 
       <div class="narrative">
 
-        <p class=""><b>Narrative</b>: <b>Bringing ideas together.</b></p>
+        <p class=""><b>Narrative</b>: <b>Breaking the thought barrier.</b></p>
          <ul class="custom-list">
-        <li>Saab has a firm belief in investing in local businesses and industries.</li>
-        <li>Saab believes in sharing technology, ideas and thinking.
+        <li>Saab pushes boundaries, breaks conventions and develops clever solutions.</li>
+        <li>Saab develops ground-breaking ideas for existing technology and pioneering innovations.
 </li>
         </ul>
       </div>
@@ -190,3 +201,4 @@ performance and effectiveness.
 
   
   </div>
+  <script src="js/drop.js"></script>

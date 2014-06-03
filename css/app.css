@@ -50,20 +50,28 @@
 .bar-title .dropdown {
 		  position: absolute;
   top: 0;
-  right: 20px;
+  right: 0px;
   display: block;
-  width: 100%;
+  width: 55px;
+  padding-right:20px; padding-left:20px
   font-size: 12px;
   font-weight: bold;
   line-height: 44px;
-  color: #002459;
+  color: #012559;
   text-align: right;
   /*text-shadow: 0 -1px rgba(0, 0, 0, .5);*/
   white-space: nowrap;
+ /*background:#ebebeb;*/
+
 
 
 }
 
+.bar-title .dropdown .drop {
+
+  /*background:red;*/
+
+}
 
 
 .upper-thin {
@@ -77,7 +85,8 @@
     color:#002459;
   font-size:18px;
   font-family: 'Conv_HelveticaNeueLTPro-HvEx';
-   letter-spacing: -2px;
+   letter-spacing: -1.5px;
+
 }
 
 .cap-wrap {
@@ -123,4 +132,29 @@ ul.custom-list  {
 .saab-box .context, .saab-box .narrative {
   margin-top:10px;margin-bottom:10px;
   padding:5px;
+}
+
+
+.dropdown-expanded {
+
+  display:none;
+  width:100%;
+  background:#012559;
+  margin:0; padding:0;
+  position: absolute;
+  top:44px;
+  color:#FFFFFF;
+  z-index: 1000;
+}
+.dropdown-expanded li {
+
+  border-bottom: 1px solid #385580;
+  
+  border-collapse: collapse;
+  font-size: 18px;
+  padding-top:15px; padding-bottom:15px;
+}
+
+.dropdown-expanded a {
+  color:#FFFFFF;
 }

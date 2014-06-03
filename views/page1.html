@@ -1,4 +1,15 @@
   <!-- your role in building the saab brand -->
+ <div class="dropdown-expanded content-padded"> 
+ <ul class="content-padded" >
+
+    <li 
+    ng-repeat="strona in strony" class="content-padded">
+         <a href="#/page/{{strona.id}}">{{strona.caption}}</a>
+    </li>
+ 
+ </ul>
+ </div>
+
 
   <header class="bar-title">
     <a class="button-prev" href="#/">
@@ -71,3 +82,4 @@
       </li> -->
    
   </div>
+  <script src="js/drop.js"></script>
